@@ -1,6 +1,3 @@
-/*
- * AeroControl - main.c (Versao Enxuta com Limpeza de Tela)
- */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
