@@ -8,14 +8,14 @@
 
 static Sistema sistema;
 
-/* Limpa o terminal via codigo ANSI sem usar system("clear") */
+// Limpa o terminal
 static void limparTela(void)
 {
     printf("\033[H\033[J");
     fflush(stdout);
 }
 
-/* Leitura simples de texto do teclado */
+// Ler texto
 static void lerTextoSimples(const char *prompt, char *dest, size_t tam)
 {
     printf("%s", prompt);
@@ -27,7 +27,7 @@ static void lerTextoSimples(const char *prompt, char *dest, size_t tam)
     }
 }
 
-/* Leitura simples de inteiro */
+// Ler inteiros
 static int lerIntSimples(const char *prompt)
 {
     int val;
@@ -39,7 +39,7 @@ static int lerIntSimples(const char *prompt)
     return val;
 }
 
-/* Leitura simples de float */
+// Ler float
 static float lerFloatSimples(const char *prompt)
 {
     float val;
@@ -51,6 +51,7 @@ static float lerFloatSimples(const char *prompt)
     return val;
 }
 
+// Pausa o terminal ate dar ENTER
 static void pausar(void)
 {
     char buf[8];
@@ -58,8 +59,7 @@ static void pausar(void)
     fgets(buf, sizeof(buf), stdin);
 }
 
-/* ======================= 1. AEROPORTO ======================= */
-
+// Interface de cadastrar aeroporto
 static void opCadastrarAeroporto(void)
 {
     char nome[TAM_NOME], iata[TAM_IATA], tipo[TAM_TIPO];
@@ -76,6 +76,7 @@ static void opCadastrarAeroporto(void)
     printf("\nAeroporto cadastrado/atualizado com sucesso.\n");
 }
 
+// Interface do menu do aeroporto
 static void menuAeroporto(void)
 {
     int op;
@@ -99,8 +100,7 @@ static void menuAeroporto(void)
     } while (op != 0);
 }
 
-/* ======================= 2. AVIOES ======================= */
-
+// interface da tela de cadastrar avião
 static void opCadastrarAviao(void)
 {
     char nome[TAM_NOME], modelo[TAM_MODELO], fab[TAM_FABRIC], voo[TAM_VOO];
@@ -124,6 +124,7 @@ static void opCadastrarAviao(void)
     }
 }
 
+// interface da tela de menu de aviões
 static void menuAvioes(void)
 {
     int op;
@@ -167,8 +168,7 @@ static void menuAvioes(void)
     } while (op != 0);
 }
 
-/* ======================= 3. PISTAS ======================= */
-
+// interface da tela de menu de pistas
 static void menuPistas(void)
 {
     int op;
@@ -217,8 +217,7 @@ static void menuPistas(void)
     } while (op != 0);
 }
 
-/* ======================= 4. CONTROLE AEREO ======================= */
-
+// interface da tela de menu controle
 static void menuControle(void)
 {
     int op;
@@ -267,8 +266,6 @@ static void menuControle(void)
         }
     } while (op != 0);
 }
-
-/* ======================= MAIN ======================= */
 
 int main(void)
 {
